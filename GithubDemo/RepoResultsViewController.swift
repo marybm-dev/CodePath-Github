@@ -64,9 +64,10 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
         let repo = repos[indexPath.row]
         
         cell.repoImageView.setImageWith(URL(string: repo.ownerAvatarURL!)!)
-        cell.nameLabel.text = repo.name!
+        cell.repoLabel.text = repo.name!
+        cell.nameLabel.text = "by \(repo.ownerHandle!)"
         cell.starCountLabel.text = "\(repo.stars!)"
-        cell.forkCount.text = "\(repo.forks!)"
+        cell.forkCountLabel.text = "\(repo.forks!)"
         cell.descriptionLabel.text = "\(repo.repoDescription!)"
         
         return cell
