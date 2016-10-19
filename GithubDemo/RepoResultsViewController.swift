@@ -16,17 +16,12 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
     var searchBar: UISearchBar!
     var searchSettings = GithubRepoSearchSettings()
 
-    var repos: [GithubRepo]!
+    var repos = [GithubRepo]()
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.repos = []
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.estimatedRowHeight = 100
-        self.tableView.rowHeight = UITableViewAutomaticDimension
         // Initialize the UISearchBar
         searchBar = UISearchBar()
         searchBar.delegate = self
@@ -37,6 +32,9 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
 
         // Perform the first search when the view controller first loads
         doSearch()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 300
     }
 
     // Perform the search.
@@ -60,8 +58,16 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
                 print(error)
         })
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "com.repoViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "com.repoViewCell", for: indexPath) as! RepoTableViewCell
+        let repo = repos[indexPath.row]
+        
+        cell.repoImageView.setImageWith(URL(string: repo.ownerAvatarURL!)!)
+        cell.nameLabel.text = repo.name!
+        cell.starCountLabel.text = "\(repo.stars!)"
+        cell.forkCount.text = "\(repo.forks!)"
+        cell.descriptionLabel.text = "\(repo.repoDescription!)"
         
         return cell
     }
@@ -69,6 +75,7 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repos.count
     }
+
 }
 
 // SearchBar methods
