@@ -10,8 +10,7 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
-    
-    @IBAction func didTouchCancelButton(_ sender: AnyObject) {
+    @IBAction func cancelButtonTapped(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
     
