@@ -179,7 +179,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ix5-7m-eeR">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="kl3-Ge-FvW"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="kl3-Ge-FvW">
+                            <connections>
+                                <action selector="didTouchCancelButton:" destination="e6V-ef-NoO" id="Vr2-Nr-6Vs"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="kRV-fw-ATB"/>
                     </navigationItem>
                 </tableViewController>
