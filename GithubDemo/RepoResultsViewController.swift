@@ -39,6 +39,8 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
 
     func updateSettings(didChangeSlider value: Int) {
         searchSettings.minStars = value
+        self.repos.removeAll()
+        self.doSearch()
     }
 
     // Perform the search.
