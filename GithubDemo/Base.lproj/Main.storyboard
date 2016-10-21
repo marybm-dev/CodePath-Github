@@ -127,7 +127,7 @@
                     <navigationItem key="navigationItem" id="x5q-EH-pP8">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="IIb-Wa-nGv">
                             <connections>
-                                <segue destination="s6H-Od-8kh" kind="presentation" id="JYE-PE-mi3"/>
+                                <segue destination="s6H-Od-8kh" kind="presentation" identifier="showSettingsViewController" id="JYE-PE-mi3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -156,6 +156,21 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="paJ-O8-k9r" id="mpa-y0-F0c">
                                             <frame key="frameInset" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="he0-mp-Meb"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQQ-FD-peg">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="he0-mp-Meb" firstAttribute="leading" secondItem="mpa-y0-F0c" secondAttribute="leadingMargin" constant="13" id="0i2-Kf-2ep"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SQQ-FD-peg" secondAttribute="trailing" constant="10" id="F00-Bc-IPi"/>
+                                                <constraint firstItem="he0-mp-Meb" firstAttribute="centerY" secondItem="mpa-y0-F0c" secondAttribute="centerY" id="HCV-0f-VY2"/>
+                                                <constraint firstItem="SQQ-FD-peg" firstAttribute="leading" secondItem="he0-mp-Meb" secondAttribute="trailing" constant="40" id="jlJ-g5-Xz1"/>
+                                                <constraint firstItem="SQQ-FD-peg" firstAttribute="centerY" secondItem="he0-mp-Meb" secondAttribute="centerY" id="ra3-T4-d9N"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -181,15 +196,23 @@
                     <navigationItem key="navigationItem" id="ix5-7m-eeR">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="kl3-Ge-FvW">
                             <connections>
-                                <action selector="didTouchCancelButton:" destination="e6V-ef-NoO" id="Vr2-Nr-6Vs"/>
+                                <action selector="cancelButtonTapped:" destination="e6V-ef-NoO" id="hnW-at-sjA"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="kRV-fw-ATB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="kRV-fw-ATB">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="e6V-ef-NoO" id="kK5-3s-nh0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="minStarsLabel" destination="SQQ-FD-peg" id="pdk-ga-RfV"/>
+                        <outlet property="minStarsSlider" destination="he0-mp-Meb" id="Ukw-Q0-wpB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mdI-lJ-m6m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2491.304347826087" y="-557.60869565217399"/>
+            <point key="canvasLocation" x="2286.9565217391305" y="-558.42391304347825"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FpP-oR-azb">

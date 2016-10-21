@@ -11,7 +11,7 @@ import MBProgressHUD
 import AFNetworking
 
 // Main ViewController
-class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StarSliderDelegate {
 
     var searchBar: UISearchBar!
     var searchSettings = GithubRepoSearchSettings()
@@ -35,6 +35,10 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 300
+    }
+
+    func updateSettings(didChangeSlider value: Int) {
+        searchSettings.minStars = value
     }
 
     // Perform the search.
@@ -77,6 +81,15 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
         return repos.count
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSettingsViewController" {
+            
+            let navViewController = segue.destination as! UINavigationController
+            let settingsViewController = navViewController.topViewController as! SettingsTableViewController
+            settingsViewController.minStars = searchSettings.minStars
+            settingsViewController.delegate = self
+        }
+    }
 }
 
 // SearchBar methods
