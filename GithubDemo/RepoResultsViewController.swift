@@ -88,6 +88,7 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
             
             let navViewController = segue.destination as! UINavigationController
             let settingsViewController = navViewController.topViewController as! SettingsTableViewController
+            settingsViewController.searchSettings = searchSettings
             settingsViewController.minStars = searchSettings.minStars
             settingsViewController.sliderDelegate = self
         }
