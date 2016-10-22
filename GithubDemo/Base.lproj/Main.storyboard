@@ -191,7 +191,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lvN-78-pV2"/>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lvN-78-pV2">
+                                            <connections>
+                                                <action selector="didToggleSwitchWithSender:" destination="ZAX-Uc-Iw6" eventType="valueChanged" id="72X-mX-0G5"/>
+                                            </connections>
+                                        </switch>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="lvN-78-pV2" firstAttribute="centerY" secondItem="vKG-oP-kas" secondAttribute="centerY" id="0cD-8n-fPz"/>

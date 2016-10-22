@@ -24,6 +24,8 @@ class SettingsTableViewController: UITableViewController, StarSliderDelegate, La
     var sliderDelegate: StarSliderDelegate?
     var languageDelegate: LanguageSwitchDelegate?
     
+    var oldSwitchValue = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +36,12 @@ class SettingsTableViewController: UITableViewController, StarSliderDelegate, La
     }
 
     func languageSwitchDidToggle(cell: LanguageCell, newValue: Bool) {
+        if newValue == oldSwitchValue {
+            return
+        }
         
+        oldSwitchValue = newValue
+        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,7 +54,7 @@ class SettingsTableViewController: UITableViewController, StarSliderDelegate, La
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "languageCell") as! LanguageCell
-        if !cell.onOffSwitch.isOn {
+        if cell.onOffSwitch.isOn {
             return searchSettings.languages.count
         }
         

@@ -123,14 +123,14 @@
 		6B2DDEEA1B02911A00D25281 /* GithubDemo */ = {
 			isa = PBXGroup;
 			children = (
-				5E37074F1DBB0D5D0081A30E /* LanguageCell.swift */,
-				5E3707501DBB0D5D0081A30E /* StarSliderCell.swift */,
 				6B2DDEED1B02911A00D25281 /* AppDelegate.swift */,
 				6B2DDF0D1B02970A00D25281 /* GithubRepo.swift */,
 				6B9F8B091B02B8E4001483E7 /* GithubRepoSearchSettings.swift */,
 				5EA012D41DB7220100EB32DA /* RepoTableViewCell.swift */,
 				6B2DDEEF1B02911A00D25281 /* RepoResultsViewController.swift */,
 				5EB2E3641DB929F200EDA27D /* SettingsTableViewController.swift */,
+				5E3707501DBB0D5D0081A30E /* StarSliderCell.swift */,
+				5E37074F1DBB0D5D0081A30E /* LanguageCell.swift */,
 				6B2DDEF11B02911A00D25281 /* Main.storyboard */,
 				6B2DDEF41B02911A00D25281 /* Images.xcassets */,
 				6B2DDEF61B02911A00D25281 /* LaunchScreen.xib */,
