@@ -186,18 +186,19 @@
                                     <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKG-oP-kas">
-                                            <frame key="frameInset" minX="22" minY="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Languages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKG-oP-kas">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lvN-78-pV2">
-                                            <frame key="frameInset" minX="308" minY="6" width="51" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </switch>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lvN-78-pV2"/>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="lvN-78-pV2" firstAttribute="centerY" secondItem="vKG-oP-kas" secondAttribute="centerY" id="0cD-8n-fPz"/>
+                                        <constraint firstItem="vKG-oP-kas" firstAttribute="leading" secondItem="QsY-g9-xxl" secondAttribute="leadingMargin" constant="14" id="19v-b3-FUx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="lvN-78-pV2" secondAttribute="trailing" constant="10" id="3FS-l6-PaJ"/>
+                                        <constraint firstItem="vKG-oP-kas" firstAttribute="centerY" secondItem="QsY-g9-xxl" secondAttribute="centerY" id="K4J-j6-NlE"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="languageLabel" destination="vKG-oP-kas" id="Nsg-j7-ymh"/>
