@@ -9,7 +9,7 @@
 import UIKit
 
 protocol StarSliderDelegate {
-    func updateSettings(didChangeSlider value: Int)
+    func updateSettings(newValue: Int)
 }
 
 protocol LanguageSwitchDelegate {
@@ -23,7 +23,7 @@ class StarSliderCell: UITableViewCell {
     var delegate: StarSliderDelegate?
     
     @IBAction func didChangeValue(_ sender: AnyObject) {
-        delegate?.updateSettings(didChangeSlider: Int(minStarsSlider.value))
+        delegate?.updateSettings(newValue: Int(minStarsSlider.value))
         minStarsLabel.text = "min: \(Int(minStarsSlider.value))"
     }
     
@@ -53,7 +53,7 @@ class SettingsTableViewController: UITableViewController, StarSliderDelegate, La
     }
     
     @IBAction func saveButtonTapped(_ sender: AnyObject) {
-        sliderDelegate?.updateSettings(didChangeSlider: self.minStars)
+        sliderDelegate?.updateSettings(newValue: self.minStars)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -67,8 +67,8 @@ class SettingsTableViewController: UITableViewController, StarSliderDelegate, La
         
     }
 
-    func updateSettings(didChangeSlider value: Int) {
-        self.minStars = value
+    func updateSettings(newValue: Int) {
+        self.minStars = newValue
     }
 
     func languageSwitchDidToggle(cell: LanguageCell, newValue: Bool) {

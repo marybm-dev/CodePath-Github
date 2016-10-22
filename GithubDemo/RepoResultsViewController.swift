@@ -37,8 +37,8 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.estimatedRowHeight = 300
     }
 
-    func updateSettings(didChangeSlider value: Int) {
-        searchSettings.minStars = value
+    func updateSettings(newValue: Int) {
+        searchSettings.minStars = newValue
         self.repos.removeAll()
         self.doSearch()
     }
