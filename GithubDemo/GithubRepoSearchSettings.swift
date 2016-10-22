@@ -12,8 +12,11 @@ import Foundation
 class GithubRepoSearchSettings {
     var searchString: String?
     var minStars = 0
+    var languages = [String]()
     
     init() {
-        
+        self.languages.append("Swift")
+        self.languages.append("Java")
+        self.languages.append("C++")
     }
 }
