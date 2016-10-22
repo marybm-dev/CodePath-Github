@@ -24,7 +24,7 @@ class SettingsTableViewController: UITableViewController, StarSliderDelegate, La
     var sliderDelegate: StarSliderDelegate?
     var languageDelegate: LanguageSwitchDelegate?
     
-    var oldSwitchValue = true
+    var oldSwitchValue = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +35,7 @@ class SettingsTableViewController: UITableViewController, StarSliderDelegate, La
         self.minStars = newValue
     }
 
-    func languageSwitchDidToggle(cell: LanguageCell, newValue: Bool) {
-        if newValue == oldSwitchValue {
-            return
-        }
-        
+    func languageSwitchDidToggle(newValue: Bool) {
         oldSwitchValue = newValue
         tableView.reloadData()
     }
@@ -55,7 +51,7 @@ class SettingsTableViewController: UITableViewController, StarSliderDelegate, La
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "languageCell") as! LanguageCell
         if cell.onOffSwitch.isOn {
-            return searchSettings.languages.count
+            return searchSettings.languages.count + 1
         }
         
         return 1
@@ -71,8 +67,21 @@ class SettingsTableViewController: UITableViewController, StarSliderDelegate, La
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "languageCell", for: indexPath) as! LanguageCell
-            cell.languageLabel?.text = "Languages"
-            cell.onOffSwitch?.isOn = false
+            
+            if indexPath.row == 0 {
+                cell.languageLabel?.text = "Languages"
+                cell.onOffSwitch.isHidden = false
+                
+                NSLog("cell.isOn: \(cell.onOffSwitch.isOn)")
+                cell.onOffSwitch.setOn(oldSwitchValue, animated: true)
+                NSLog("cell.isOn: \(cell.onOffSwitch.isOn)")
+            }
+            else {
+                let language = searchSettings.languages[indexPath.row - 1]
+                cell.languageLabel?.text = language
+                cell.onOffSwitch.isHidden = true
+            }
+            
             cell.delegate = self
             return cell
         }    

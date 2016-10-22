@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LanguageSwitchDelegate {
-    func languageSwitchDidToggle(cell: LanguageCell, newValue: Bool)
+    func languageSwitchDidToggle(newValue: Bool)
 }
 
 class LanguageCell: UITableViewCell {
@@ -25,6 +25,10 @@ class LanguageCell: UITableViewCell {
     }
     
     @IBAction func didToggleSwitch(sender: AnyObject) {
-        delegate?.languageSwitchDidToggle(cell: self, newValue: onOffSwitch.isOn)
+        NSLog("switch.isOn: \(onOffSwitch.isOn)")
+        
+        onOffSwitch.setOn(onOffSwitch.isOn, animated: true)
+        
+        delegate?.languageSwitchDidToggle(newValue: onOffSwitch.isOn)
     }
 }
