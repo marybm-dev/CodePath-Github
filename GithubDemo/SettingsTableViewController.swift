@@ -8,44 +8,6 @@
 
 import UIKit
 
-protocol StarSliderDelegate {
-    func updateSettings(newValue: Int)
-}
-
-protocol LanguageSwitchDelegate {
-    func languageSwitchDidToggle(cell: LanguageCell, newValue: Bool)
-}
-
-class StarSliderCell: UITableViewCell {
-    @IBOutlet weak var minStarsSlider: UISlider!
-    @IBOutlet weak var minStarsLabel: UILabel!
-    
-    var delegate: StarSliderDelegate?
-    
-    @IBAction func didChangeValue(_ sender: AnyObject) {
-        delegate?.updateSettings(newValue: Int(minStarsSlider.value))
-        minStarsLabel.text = "min: \(Int(minStarsSlider.value))"
-    }
-    
-}
-
-class LanguageCell: UITableViewCell {
-    @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var onOffSwitch: UISwitch!
-    
-    var delegate: LanguageSwitchDelegate?
-    
-    var languageRowIdentifier: String! {
-        didSet {
-            languageLabel?.text = languageRowIdentifier
-        }
-    }
-    
-    @IBAction func didToggleSwitch(sender: AnyObject) {
-        delegate?.languageSwitchDidToggle(cell: self, newValue: onOffSwitch.isOn)
-    }
-}
-
 class SettingsTableViewController: UITableViewController, StarSliderDelegate, LanguageSwitchDelegate {
     
     @IBAction func cancelButtonTapped(_ sender: AnyObject) {
