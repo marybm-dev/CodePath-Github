@@ -53,13 +53,14 @@ class SettingsTableViewController: UITableViewController, StarSliderDelegate, La
     }
     
     @IBAction func saveButtonTapped(_ sender: AnyObject) {
-        delegate?.updateSettings(didChangeSlider: self.minStars)
+        sliderDelegate?.updateSettings(didChangeSlider: self.minStars)
         self.dismiss(animated: true, completion: nil)
     }
     
     var searchSettings = GithubRepoSearchSettings()
     var minStars = Int()
-    var delegate: StarSliderDelegate?
+    var sliderDelegate: StarSliderDelegate?
+    var languageDelegate: LanguageSwitchDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
