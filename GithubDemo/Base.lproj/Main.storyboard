@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Repo Results View Controller-->
+        <!--GitHub-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="RepoResultsViewController" customModule="GithubDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -118,13 +118,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cq6-UF-EYI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="4Km-29-kPm"/>
+                            <constraint firstItem="cq6-UF-EYI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-51" id="4Km-29-kPm"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="cq6-UF-EYI" secondAttribute="bottom" id="76b-Cc-f9g"/>
                             <constraint firstItem="cq6-UF-EYI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="YA0-mZ-xps"/>
                             <constraint firstAttribute="trailing" secondItem="cq6-UF-EYI" secondAttribute="trailing" id="i8Z-0J-nBx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="x5q-EH-pP8">
+                    <navigationItem key="navigationItem" title="GitHub" id="x5q-EH-pP8">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="IIb-Wa-nGv">
                             <connections>
                                 <segue destination="s6H-Od-8kh" kind="presentation" identifier="showSettingsViewController" id="JYE-PE-mi3"/>
@@ -137,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818.84057971014499" y="-557.60869565217399"/>
+            <point key="canvasLocation" x="818.39999999999998" y="-558.17091454272872"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="upX-Mn-3gN">
